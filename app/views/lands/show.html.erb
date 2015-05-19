@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Heading:</strong>
+  <%= @land.heading %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @land.body %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @land.price %>
+</p>
+
+<p>
+  <strong>Neigborhood:</strong>
+  <%= @land.neigborhood %>
+</p>
+
+<p>
+  <strong>External url:</strong>
+  <%= @land.external_url %>
+</p>
+
+<p>
+  <strong>Timestamp:</strong>
+  <%= @land.timestamp %>
+</p>
+
+<%= link_to 'Edit', edit_land_path(@land) %> |
+<%= link_to 'Back', lands_path %>
