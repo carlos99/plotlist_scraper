@@ -1,0 +1,72 @@
+@font-face {
+    font-family: 'wcmanonegrabta';
+    src: url('wcmanonegrabta.eot');
+    src: url('wcmanonegrabta.eot?#iefix') format('embedded-opentype'),
+         url('wcmanonegrabta.woff') format('woff'),
+         url('wcmanonegrabta.ttf') format('truetype'),
+         url('wcmanonegrabta.svg#wcmanonegrabta') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'aleo-regular';
+    src: url('aleo-regular.eot');
+    src: url('aleo-regular.eot?#iefix') format('embedded-opentype'),
+         url('aleo-regular.woff') format('woff'),
+         url('aleo-regular.ttf') format('truetype'),
+         url('aleo-regular.svg#aleo-regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'aleo-light';
+    src: url('aleo-light.eot');
+    src: url('aleo-light.eot?#iefix') format('embedded-opentype'),
+         url('aleo-light.woff') format('woff'),
+         url('aleo-light.ttf') format('truetype'),
+         url('aleo-light.svg#aleo-light') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'aleo-italic';
+    src: url('aleo-italic.eot');
+    src: url('aleo-italic.eot?#iefix') format('embedded-opentype'),
+         url('aleo-italic.woff') format('woff'),
+         url('aleo-italic.ttf') format('truetype'),
+         url('aleo-italic.svg#aleo-italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'aleo-bold';
+    src: url('aleo-bold.eot');
+    src: url('aleo-bold.eot?#iefix') format('embedded-opentype'),
+         url('aleo-bold.woff') format('woff'),
+         url('aleo-bold.ttf') format('truetype'),
+         url('aleo-bold.svg#aleo-bold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+body{
+	font-family: 'aleo-regular';
+}
+
+.container-all-lands{
+	p{
+		font-family: 'aleo-light';
+		font-size: 16px;
+	}
+}
+
+.center-title-h1{
+	color: #DC3D24;
+	text-align: center;
+}

@@ -32,7 +32,25 @@ namespace :scrapper do
 
 	#Display Results
 
-	puts JSON.pretty_generate result
+	#puts result["postings"].first["heading"]
+
+	#Store results in db
+	result["postings"].each do |posting|
+
+		#Create New Post
+
+		@land = Land.new
+		@land.heading = posting["heading"]
+		@land.body = posting["body"]
+		@land.price = posting["price"]
+		@land.neighborhood = posting["location"]["locality"]
+		@land.external_url = posting["external_url"]
+		@land.timestamp = posting["timestamp"]
+
+		#save Post
+
+		@land.save
+	end
 
   end
 
