@@ -7,13 +7,19 @@
     <div class="col-md-4">
       <h3>Heading</h3>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-1">
       <h3>Price</h3>
+    </div>
+    <div class="col-md-1">
+      <h3>Beds</h3>
+    </div>
+    <div class="col-md-1">
+      <h3>Bads</h3>
     </div>
     <div class="col-md-3">
       <h3>Neigborhood</h3>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
       <h3>Last Updated</h3>
     </div>
   </div>
@@ -23,13 +29,19 @@
           <div class="col-md-4">
             <p><%= link_to land.heading, land %></p>
           </div>
-          <div class="col-md-2">
+          <div class="col-md-1">
             <p><%= number_to_currency(land.price, presicion: 0) %></p>
+          </div>
+          <div class="col-md-1">
+            <p><%= land.bedrooms %></p>
+          </div>
+          <div class="col-md-1">
+            <p><%= land.bathrooms %></p>
           </div>
           <div class="col-md-3">
             <p><%= land.neighborhood %></p>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-2">
             <p><%= "#{time_ago_in_words(Time.at(land.timestamp.to_i))} ago"%></p>
           </div>
         </div>

@@ -10,6 +10,7 @@ class LandsController < ApplicationController
   # GET /lands/1
   # GET /lands/1.json
   def show
+    @images = @land.images
   end
 
   # GET /lands/new

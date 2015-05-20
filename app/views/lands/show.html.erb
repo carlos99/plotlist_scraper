@@ -16,8 +16,39 @@
 </p>
 
 <p>
+  <strong>Bedrooms:</strong>
+  <%= @land.bedrooms %>
+</p>
+
+<p>
+  <strong>Bathrooms:</strong>
+  <%= @land.bathrooms %>
+</p>
+
+<p>
+  <strong>Square Footage:</strong>
+  <%= @land.sqft %>
+</p>
+
+<p>
+  <strong>Cats Alloewd:</strong>
+  <%= @land.cats %>
+</p>
+
+<p>
+  <strong>Dogs Allowed:</strong>
+  <%= @land.dogs %>
+</p>
+
+
+<p>
+  <strong>Street Parking:</strong>
+  <%= @land.bathrooms %>
+</p>
+
+<p>
   <strong>Neighborhood:</strong>
-  <%= @land.neighborhood %>
+  <%= @land.street_parking %>
 </p>
 
 <p>
@@ -29,6 +60,12 @@
   <strong>Timestamp:</strong>
   <%= @land.timestamp %>
 </p>
+
+<% @images.each do |image| %>
+  <div class="col-md-3">
+    <%= image_tag image.url, class: "thumbnail" %>
+  </div>
+<% end %>
 
 <%= link_to 'Edit', edit_land_path(@land) %> |
 <%= link_to 'Back', lands_path %>
