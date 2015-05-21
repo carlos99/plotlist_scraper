@@ -1,4 +1,63 @@
 <div class="container">
+<div class="row filter">
+  <div class="col-md-8 col-md-offset-2">
+    <%= form_tag lands_path, method: :get do%>
+   <div class="form-group">
+      <%= label_tag :bedrooms%>
+      <%= text_field_tag :bedrooms, nil, class: 'form-control'%>
+   </div>
+
+   <div class="form-group">
+      <%= label_tag :bathrroms%>
+      <%= text_field_tag :bathrroms, nil, class: 'form-control'%>
+   </div>
+
+   <div class="form-group">
+      <%= label_tag :neighborhood%>
+      <%= select_tag(:neighborhood, options_from_collection_for_select(Location.all, :name, :name, params[:neighborhood]), {include_blank: true})%>
+   </div>
+
+   <div class="form-group">
+      <%= label_tag :min_price%>
+      <%= text_field_tag :min_price, nil, class: 'form-control'%>
+   </div>
+
+   <div class="form-group">
+      <%= label_tag :max_price%>
+      <%= text_field_tag :max_price, nil, class: 'form-control'%>
+   </div>
+
+   <div class="form-group">
+      <%= label_tag :sqft%>
+      <%= text_field_tag :sqft, nil, class: 'form-control'%>
+   </div>
+
+   <div class="form-group">
+      <%= label_tag :cats%>
+      <%= check_box_tag :cats, "YES", nil, class: 'form-control'%>
+   </div>
+
+   <div class="form-group">
+      <%= label_tag :dogs%>
+      <%= check_box_tag :dogs, "YES", nil, class: 'form-control'%>
+   </div>
+
+   <div class="form-group">
+      <%= label_tag :w_d_in_unit%>
+      <%= check_box_tag :w_d_in_unit, "YES", nil, class: 'form-control'%>
+   </div>
+
+   <div class="form-group">
+      <%= label_tag :street_parking%>
+      <%= text_field_tag :street_parking, nil, class: 'form-control'%>
+   </div>
+
+   <div class="form-group">
+     <%= submit_tag 'Search', class: 'btn btn-success custom-btn'%>
+   </div>
+   <% end %>
+  </div>
+</div>
   <div class="row">
     <p id="notice"><%= notice %></p>
     <h1 class="center-title-h1">Listing Properties</h1>

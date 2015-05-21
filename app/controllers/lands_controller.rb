@@ -5,6 +5,16 @@ class LandsController < ApplicationController
   # GET /lands.json
   def index
     @lands = Land.all.paginate(:page => params[:page], :per_page =>20)
+    @lands =@lands.where(bedrooms: params["bedrooms"]) if params["bedrooms"].present?
+    @lands =@lands.where(bathrooms: params["bathrooms"]) if params["bathrooms"].present?
+    @lands =@lands.where(neighborhood: params["neighborhood"]) if params["neighborhood"].present?
+    @lands =@lands.where("price > ?", params["min_price"]) if params["min_price"].present?
+    @lands =@lands.where("price < ?", params["max_price"]) if params["max_price"].present?
+    @lands =@lands.where(sqft: params["sqft"]) if params["sqft"].present?
+    @lands =@lands.where(cats: params["cats"]) if params["cats"].present?
+    @lands =@lands.where(dogs: params["dogs"]) if params["dogs"].present?
+    @lands =@lands.where(w_d_in_unit: params["w_d_in_unit"]) if params["w_d_in_unit"].present?
+    @lands =@lands.where(street_parking: params["street_parking"]) if params["street_parking"].present?
   end
 
   # GET /lands/1
