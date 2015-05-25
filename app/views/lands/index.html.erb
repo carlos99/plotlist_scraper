@@ -1,92 +1,49 @@
 <div class="container">
-<div class="row filter">
-  <div class="col-md-8 col-md-offset-2">
-    <%= form_tag lands_path, method: :get do%>
-   <div class="form-group">
-      <%= label_tag :bedrooms%>
-      <%= text_field_tag :bedrooms, nil, class: 'form-control'%>
-   </div>
+  
+  <%= render 'filter' %>
 
-   <div class="form-group">
-      <%= label_tag :bathrroms%>
-      <%= text_field_tag :bathrroms, nil, class: 'form-control'%>
-   </div>
+  <% if @lands.empty? %>
+  <hr>
+  <h3>No results Found</h3>
+  <% else %>
 
-   <div class="form-group">
-      <%= label_tag :neighborhood%>
-      <%= select_tag(:neighborhood, options_from_collection_for_select(Location.all, :name, :name, params[:neighborhood]), {include_blank: true})%>
-   </div>
-
-   <div class="form-group">
-      <%= label_tag :min_price%>
-      <%= text_field_tag :min_price, nil, class: 'form-control'%>
-   </div>
-
-   <div class="form-group">
-      <%= label_tag :max_price%>
-      <%= text_field_tag :max_price, nil, class: 'form-control'%>
-   </div>
-
-   <div class="form-group">
-      <%= label_tag :sqft%>
-      <%= text_field_tag :sqft, nil, class: 'form-control'%>
-   </div>
-
-   <div class="form-group">
-      <%= label_tag :cats%>
-      <%= check_box_tag :cats, "YES", nil, class: 'form-control'%>
-   </div>
-
-   <div class="form-group">
-      <%= label_tag :dogs%>
-      <%= check_box_tag :dogs, "YES", nil, class: 'form-control'%>
-   </div>
-
-   <div class="form-group">
-      <%= label_tag :w_d_in_unit%>
-      <%= check_box_tag :w_d_in_unit, "YES", nil, class: 'form-control'%>
-   </div>
-
-   <div class="form-group">
-      <%= label_tag :street_parking%>
-      <%= text_field_tag :street_parking, nil, class: 'form-control'%>
-   </div>
-
-   <div class="form-group">
-     <%= submit_tag 'Search', class: 'btn btn-success custom-btn'%>
-   </div>
-   <% end %>
-  </div>
-</div>
-  <div class="row">
-    <p id="notice"><%= notice %></p>
-    <h1 class="center-title-h1">Listing Properties</h1>
-  </div>
-  <div class="row">
-    <div class="col-md-4">
-      <h3>Heading</h3>
+    <div class="row">
+      <p id="notice"><%= notice %></p>
+      <h1 class="center-title-h1">Listing Properties</h1>
     </div>
-    <div class="col-md-1">
-      <h3>Price</h3>
+    <div class="row">
+    <div class="col-md-1"></div>
+      <div class="col-md-4">
+        <h3>Heading</h3>
+      </div>
+      <div class="col-md-1">
+        <h3>Price</h3>
+      </div>
+      <div class="col-md-1">
+        <h3>Beds</h3>
+      </div>
+      <div class="col-md-1">
+        <h3>Bads</h3>
+      </div>
+      <div class="col-md-2">
+        <h3>Neigborhood</h3>
+      </div>
+      <div class="col-md-2">
+        <h3>Last Updated</h3>
+      </div>
     </div>
-    <div class="col-md-1">
-      <h3>Beds</h3>
-    </div>
-    <div class="col-md-1">
-      <h3>Bads</h3>
-    </div>
-    <div class="col-md-3">
-      <h3>Neigborhood</h3>
-    </div>
-    <div class="col-md-2">
-      <h3>Last Updated</h3>
-    </div>
-  </div>
     
     <% @lands.each do |land| %>
       <div class="row container-all-lands">
+          <div class="col-md-1">
+            <% if land.images.empty? %>
+              <%= image_tag 'http://placehold.it/450x450', class: 'thumbnail image-previewapt' %>
+            <% else %>
+              <%= link_to image_tag land.images.first.url, class: 'thumbnail image-previewapt' %>
+            <% end %>
+          </div>
           <div class="col-md-4">
-            <p><%= link_to land.heading, land %></p>
+            <p><%= link_to land.heading.humanize, land %></p>
           </div>
           <div class="col-md-1">
             <p><%= number_to_currency(land.price, presicion: 0) %></p>
@@ -97,7 +54,7 @@
           <div class="col-md-1">
             <p><%= land.bathrooms %></p>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-2">
             <p><%= land.neighborhood %></p>
           </div>
           <div class="col-md-2">
@@ -106,9 +63,12 @@
         </div>
       <% end %>
 
-      <%= will_paginate @lands, renderer: BootstrapPagination::Rails%>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 content-pagination">
+          <%= will_paginate @lands, renderer: BootstrapPagination::Rails%>
+        </div>
+      </div>
 </div>
 
-<br>
-
-<%= link_to 'New Land', new_land_path %>
+ 
+<% end %>

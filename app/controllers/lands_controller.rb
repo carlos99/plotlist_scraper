@@ -1,20 +1,25 @@
 class LandsController < ApplicationController
   before_action :set_land, only: [:show, :edit, :update, :destroy]
 
+  def home
+    
+  end
+
   # GET /lands
   # GET /lands.json
   def index
     @lands = Land.all.paginate(:page => params[:page], :per_page =>20)
-    @lands =@lands.where(bedrooms: params["bedrooms"]) if params["bedrooms"].present?
-    @lands =@lands.where(bathrooms: params["bathrooms"]) if params["bathrooms"].present?
-    @lands =@lands.where(neighborhood: params["neighborhood"]) if params["neighborhood"].present?
-    @lands =@lands.where("price > ?", params["min_price"]) if params["min_price"].present?
-    @lands =@lands.where("price < ?", params["max_price"]) if params["max_price"].present?
-    @lands =@lands.where(sqft: params["sqft"]) if params["sqft"].present?
-    @lands =@lands.where(cats: params["cats"]) if params["cats"].present?
-    @lands =@lands.where(dogs: params["dogs"]) if params["dogs"].present?
-    @lands =@lands.where(w_d_in_unit: params["w_d_in_unit"]) if params["w_d_in_unit"].present?
-    @lands =@lands.where(street_parking: params["street_parking"]) if params["street_parking"].present?
+    @lands = @lands.where(bedrooms: params["bedrooms"]) if params["bedrooms"].present?
+    @lands = @lands.where(bathrooms: params["bathrooms"]) if params["bathrooms"].present?
+    @lands = @lands.where(neighborhood: params["neighborhood"]) if params["neighborhood"].present?
+    @lands = @lands.where("price > ?", params["min_price"]) if params["min_price"].present?
+    @lands = @lands.where("price < ?", params["max_price"]) if params["max_price"].present?
+    @lands = @lands.where("sqft > ?", params["min_square_footage"]) if params["min_square_footage"].present?
+    @lands = @lands.where("sqft < ?", params["max_square_footage"]) if params["max_square_footage"].present?
+    @lands = @lands.where(cats: params["cats"]) if params["cats"].present?
+    @lands = @lands.where(dogs: params["dogs"]) if params["dogs"].present?
+    @lands = @lands.where(w_d_in_units: params["washer_driyer_in_units"]) if params["washer_driyer_in_units"].present?
+    @lands = @lands.where(street_parking: params["street_parking"]) if params["street_parking"].present?
   end
 
   # GET /lands/1

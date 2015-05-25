@@ -59,11 +59,38 @@ body{
 	font-family: 'aleo-regular';
 }
 
+.content-all{
+    
+}
+
+.jumbotron{
+    background-image: url('https://s3.amazonaws.com/miscellaneousv01/background-plotpage.jpg');
+    height: 660px;
+    margin: 0;
+
+    @media (min-width: 460px) and (max-width: 767px){
+        height: 100%;
+      }
+}
+
+.btn-default{
+    background-color: #E14824;
+    border-color: #ccc;
+    color: #fff;
+    display: block;
+    margin: auto;
+    padding: 10px 30px;
+}
+
 .container-all-lands{
 	p{
 		font-family: 'aleo-light';
 		font-size: 16px;
 	}
+}
+
+.center{
+    text-align: center;
 }
 
 .center-title-h1{
@@ -72,6 +99,24 @@ body{
 }
 
 .detail-land{
+
+    .content-description-propertie{
+        background-color: #f1f1f1;
+        border-radius: 6px;
+        margin-bottom: 20px;
+        padding: 20px;
+
+        h4{
+            font-weight: bold;
+            font-size: 16px;
+            color: #DC3D24;
+        }
+
+        p{
+            color: #333;
+        }
+    }
+
     img{
         width: 100%;
     }
@@ -80,4 +125,21 @@ body{
         display: block;
         width: 100%
     }
+}
+
+.search-btn{
+    margin-top: 10px;
+}
+
+.filter{
+    background-color: rgba(255, 256, 251, 0.7);
+    border-radius: 6px;
+}
+
+.image-previewapt{
+    width: 100%;
+    height: 100%;
+}
+.content-pagination{
+  text-align: center;
 }

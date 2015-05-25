@@ -1,76 +1,104 @@
 <div class="container detail-land">
+<div class="row">
+  <h2 class="center-title-h1">See all details about this apartment</h2>
+</div>
   <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Heading:</strong>
-  <%= @land.heading %>
-</p>
+  <div class="row content-description-propertie">
+    <div class="col-md-7">
+      <% if @images.blank? %>
+        <%= image_tag 'http://placehold.it/450x450', class: 'thumbnail image-previewapt' %>
+      <% else %>
+          <%= image_tag @images.first.url, class: 'image-previewapt' %>
+      <% end %>
+    </div>
+    <div class="col-md-5 col-sm-5 col-xs-12">
 
-<p>
-  <strong>Body:</strong>
-  <%= @land.body %>
-</p>
+      <% if %>
+         <h4>Heading:</h4>
+        <p>
+          <%= @land.heading.humanize %>
+        </p>
+      <% end %>
 
-<p>
-  <strong>Price:</strong>
-  <%= @land.price %>
-</p>
+      <% if %>
+        <h4>Description:</h4>
+        <p>
+          <%= @land.body.humanize %>
+        </p>
+      <% end %>
 
-<p>
-  <strong>Bedrooms:</strong>
-  <%= @land.bedrooms %>
-</p>
+      <% if %>
+        <p>
+          <h4>Price:</h4>
+          <%= number_to_currency(@land.price) %>
+        </p>
+      <% end %>
 
-<p>
-  <strong>Bathrooms:</strong>
-  <%= @land.bathrooms %>
-</p>
+        <% if %>
+          <p>
+            <h4>Bedrooms:</h4>
+            <%= @land.bedrooms %>
+          </p>
+        <% end %>
 
-<p>
-  <strong>Square Footage:</strong>
-  <%= @land.sqft %>
-</p>
+        <% if @land.bathrooms.present? %>
+          <p>
+            <h4>Bathrooms:</h4>
+            <%= @land.bathrooms %>
+          </p>
+        <% end %>
 
-<p>
-  <strong>Cats Alloewd:</strong>
-  <%= @land.cats %>
-</p>
+        <% if @land.sqft.present? %>
+          <p>
+            <h4>Square Footage:</h4>
+            <%= @land.sqft %>
+          </p>
+        <%end %>
 
-<p>
-  <strong>Dogs Allowed:</strong>
-  <%= @land.dogs %>
-</p>
+        <% if @land.cats.present? %>
+          <p>
+            <h4>Cats Alloewd:</h4>
+            <%= @land.cats.humanize %>
+          </p>
+        <% end %>
 
+        <% if @land.dogs.present? %>
+          <p>
+            <h4>Dogs Allowed:</h4>
+            <%= @land.dogs.humanize %>
+          </p>
+        <% end %>
 
-<p>
-  <strong>Street Parking:</strong>
-  <%= @land.bathrooms %>
-</p>
+        <% if @land.street_parking.present? %>
+          <p>
+            <h4>Street Parking:</h4>
+            <%= @land.street_parking %>
+          </p>
+        <% end %>
 
-<p>
-  <strong>Neighborhood:</strong>
-  <%= @land.street_parking %>
-</p>
+        <% if @land.neighborhood.present?%>
+          <p>
+            <h4>Neighborhood:</h4>
+            <%= @land.neighborhood %>
+          </p>
+        <% end %>
 
-<p>
-  <strong>External url:</strong>
-  <%= @land.external_url %>
-</p>
-
-<p>
-  <strong>Timestamp:</strong>
-  <%= @land.timestamp %>
-</p>
+        <p>
+          <h4>Timestamp:</h4>
+          <%= "#{time_ago_in_words(Time.at(@land.timestamp.to_i))} ago"%>
+        </p>
+    </div>
+  </div>
 
 <div class="row">
   <% @images.each do |image| %>
-  <div class="col-md-6">
+  <div class="col-md-6 col-sm-6 col-xs-12">
     <%= image_tag image.url, class: "thumbnail" %>
   </div>
 <% end %>
 </div>
 
-<%= link_to 'Edit', edit_land_path(@land) %> |
-<%= link_to 'Back', lands_path %>
+
 
 </div>
