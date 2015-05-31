@@ -68,7 +68,7 @@ body{
     height: 660px;
     margin: 0;
 
-    @media (min-width: 460px) and (max-width: 991px){
+    @media (min-width: 320px) and (max-width: 991px){
         height: 100%;
       }
 }
@@ -134,6 +134,7 @@ body{
 .filter{
     background-color: rgba(255, 256, 251, 0.7);
     border-radius: 6px;
+    margin-top: 40px;
 }
 
 .image-previewapt{

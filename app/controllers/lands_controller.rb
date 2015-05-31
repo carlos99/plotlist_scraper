@@ -8,7 +8,7 @@ class LandsController < ApplicationController
   # GET /lands
   # GET /lands.json
   def index
-    @lands = Land.all.paginate(:page => params[:page], :per_page =>20)
+    @lands = Land.order('timestamp DESC').paginate(:page => params[:page], :per_page =>20)
     @lands = @lands.where(bedrooms: params["bedrooms"]) if params["bedrooms"].present?
     @lands = @lands.where(bathrooms: params["bathrooms"]) if params["bathrooms"].present?
     @lands = @lands.where(neighborhood: params["neighborhood"]) if params["neighborhood"].present?
