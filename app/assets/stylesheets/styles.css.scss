@@ -68,7 +68,7 @@ body{
     height: 660px;
     margin: 0;
 
-    @media (min-width: 460px) and (max-width: 767px){
+    @media (min-width: 460px) and (max-width: 991px){
         height: 100%;
       }
 }
@@ -142,4 +142,11 @@ body{
 }
 .content-pagination{
   text-align: center;
+}
+
+.special-leyend{
+  font-size: 15px !important;
+  text-align: center;
+  color: #DC3D24;
+  font-weight: bold !important;
 }
