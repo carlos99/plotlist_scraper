@@ -64,12 +64,33 @@ body{
 }
 
 .jumbotron{
-    background-image: url('https://s3.amazonaws.com/miscellaneousv01/background-plotpage.jpg');
+    background: none;
     height: 660px;
     margin: 0;
 
     @media (min-width: 320px) and (max-width: 991px){
         height: 100%;
+      }
+}
+
+.header-properties{
+  @media (min-width: 320px) and (max-width: 991px){
+        display: none;
+      }
+}
+
+.mobile-heading{
+  display: none;
+}
+
+.mobile-heading{
+  @media (min-width: 320px) and (max-width: 991px){
+        display: block;
+        font-size: 14px;
+        margin: 0;
+        display: inline-block;
+        margin-right: 10px;
+        font-weight: bold;
       }
 }
 
@@ -150,4 +171,38 @@ body{
   text-align: center;
   color: #DC3D24;
   font-weight: bold !important;
+}
+
+.bg-div{
+  background-image: url('https://s3.amazonaws.com/miscellaneousv01/background-plotpage.jpg');
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  position: absolute
+}
+
+.center-line{
+  text-align: center;
+}
+
+.home-link{
+
+  padding-top: 20px !important;
+  font-size: 16px !important;
+  color: #333 !important;
+  text-decoration: underline !important;
+  display: inline-block
+}
+
+.reseach-link{
+  padding-top: 20px !important;
+  padding-left: 0;
+  margin-left: 5px;
+  vertical-align: initial !important;
+  font-size: 16px !important;
+  color: #333 !important;
+  text-decoration: underline !important;
+  display: inline-block
 }

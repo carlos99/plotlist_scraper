@@ -1,6 +1,11 @@
 <div class="container">
-  
-  <%= render 'filter' %>
+  <div class="back-home">
+    <%= link_to 'Plotlist', root_path, class: 'home-link'%>
+    <%= submit_tag 'Search Again', class: 'reseach-link btn btn-link'%>
+  </div>
+  <div class="search-again" style="display: none;">
+    <%= render 'filter' %>
+  </div>
 
   <% if @lands.empty? %>
   <hr>
@@ -11,24 +16,24 @@
       <p id="notice"><%= notice %></p>
       <h1 class="center-title-h1">Properties Found</h1>
     </div>
-    <div class="row">
-    <div class="col-md-1"></div>
+    <div class="row header-properties">
+      <div class="col-md-1"></div>
       <div class="col-md-4">
         <h3>Heading</h3>
       </div>
-      <div class="col-md-1">
+      <div class="col-md-1 center-line">
         <h3>Price</h3>
       </div>
-      <div class="col-md-1">
+      <div class="col-md-1 center-line">
         <h3>Beds</h3>
       </div>
-      <div class="col-md-1">
+      <div class="col-md-1 center-line">
         <h3>Bads</h3>
       </div>
-      <div class="col-md-2">
+      <div class="col-md-2 center-line">
         <h3>Neigborhood</h3>
       </div>
-      <div class="col-md-2">
+      <div class="col-md-2 center-line">
         <h3>Last Updated</h3>
       </div>
     </div>
@@ -42,23 +47,29 @@
               <%= link_to image_tag land.images.first.url, class: 'thumbnail image-previewapt' %>
             <% end %>
           </div>
-          <div class="col-md-4">
-            <p><%= link_to land.heading.humanize, land %></p>
+          <div class="col-md-4 center-line">
+            <p>
+             <h3 class="mobile-heading">Heading</h3><%= link_to land.heading.humanize, land %></p>
           </div>
-          <div class="col-md-1">
-            <p><%= number_to_currency(land.price, presicion: 0) %></p>
+          <div class="col-md-1 center-line">
+            <p>
+             <h3 class="mobile-heading">Price</h3><%= number_to_currency(land.price, presicion: 0) %></p>
           </div>
-          <div class="col-md-1">
-            <p><%= land.bedrooms %></p>
+          <div class="col-md-1 center-line">
+            <p>
+             <h3 class="mobile-heading">Bedrooms</h3><%= land.bedrooms %></p>
           </div>
-          <div class="col-md-1">
-            <p><%= land.bathrooms %></p>
+          <div class="col-md-1 center-line">
+            <p>
+             <h3 class="mobile-heading">Bathrooms</h3><%= land.bathrooms %></p>
           </div>
-          <div class="col-md-2">
-            <p><%= land.neighborhood %></p>
+          <div class="col-md-2 center-line">
+            <p>
+             <h3 class="mobile-heading">Neighborhood</h3><%= land.neighborhood %></p>
           </div>
-          <div class="col-md-2">
-            <p><%= "#{time_ago_in_words(Time.at(land.timestamp.to_i))} ago"%></p>
+          <div class="col-md-2 center-line">
+            <p>
+              <h3 class="mobile-heading">Last Updated</h3><%= "#{time_ago_in_words(Time.at(land.timestamp.to_i))} ago"%></p>
           </div>
         </div>
       <% end %>
