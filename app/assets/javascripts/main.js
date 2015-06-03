@@ -1,12 +1,12 @@
 $( document ).ready(function() {
     $('#ragain').click(function(e){
 	    e.preventDefault();
-	    $('.search-again').fadeToggle(2000);
+	    $('.search-again').fadeToggle(1500);
 	});
 
 	$('.morefilters').click(function(e){
 	    e.preventDefault();
-	    $('.more-filters-form').fadeToggle(1000);
+	    $('.more-filters-form').fadeToggle(800);
 	});
 });
 

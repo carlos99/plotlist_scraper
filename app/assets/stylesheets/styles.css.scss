@@ -189,6 +189,17 @@ body{
   position: absolute
 }
 
+.bg-div{
+  @media (min-width: 993px) and (max-width: 1280px){
+    height: 768px;
+  }}
+
+.bg-div{
+  @media (min-width: 1281px) and (max-width: 1920px){
+    height: 900px;
+  }
+}
+
 .center-line{
   text-align: center;
 }
