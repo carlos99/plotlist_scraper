@@ -59,10 +59,6 @@ body{
 	font-family: 'aleo-regular';
 }
 
-.content-all{
-    
-}
-
 .jumbotron{
     background: none;
     height: 660px;
@@ -85,13 +81,19 @@ body{
 
 .mobile-heading{
   @media (min-width: 320px) and (max-width: 991px){
-        display: block;
-        font-size: 14px;
-        margin: 0;
-        display: inline-block;
-        margin-right: 10px;
-        font-weight: bold;
-      }
+    display: block;
+    font-size: 14px;
+    margin: 0;
+    display: inline-block;
+    margin-right: 10px;
+    font-weight: bold;
+  }
+}
+
+.top-buttons{
+  @media (min-width: 320px) and (max-width: 767px){
+    text-align: center;
+  }
 }
 
 .btn-default{
@@ -152,6 +154,10 @@ body{
     margin-top: 10px;
 }
 
+.more-filters-form{
+  display: none;
+}
+
 .filter{
     background-color: rgba(255, 256, 251, 0.7);
     border-radius: 6px;
@@ -187,6 +193,19 @@ body{
   text-align: center;
 }
 
+.no-result{
+  font-family: 'aleo-bold';
+  font-size: 24px;
+  text-align: center;
+}
+
+.no-result-note{
+  color: #DC3D24;
+  font-family: 'aleo-light';
+  font-size: 18px;
+  text-align: center;
+}
+
 .heagin-link{
   background-color: #E14824;
   border-radius: 4px;
@@ -196,6 +215,16 @@ body{
   margin-top: 20px;
   text-align: center;
 
+  &:hover{
+    outline: none;
+  }
+
+  &:focus{
+    outline: none;    
+  }
+}
+
+.morefilters{
   &:hover{
     outline: none;
   }

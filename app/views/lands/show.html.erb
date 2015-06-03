@@ -1,5 +1,12 @@
 <div class="container detail-land">
 <div class="row">
+  <div class="top-buttons">
+    <%= link_to 'Plotlist', root_path, class: 'heagin-link btn btn-default'%>
+    <%= submit_tag 'Search Again', class: 'heagin-link btn btn-default', id: 'ragain'%>
+  </div>
+  <div class="search-again" style="display: none;">
+    <%= render 'filter' %>
+  </div>
   <h2 class="center-title-h1">See all details about this apartment</h2>
 </div>
   <p id="notice"><%= notice %></p>

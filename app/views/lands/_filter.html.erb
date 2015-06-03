@@ -1,46 +1,48 @@
 <div class="row filter">
-   <%= form_tag lands_path, method: :get, class: 'fore' do%>
+   <%= form_tag lands_path, method: :get, id: 'frm-search' do%>
     <div class="col-md-12 col-md-offset-">
       <h3 class="center-title-h1">The easiest way to find apartment rental in New York</h3>
       <p class="special-leyend">* You can use the filters below to make a search. Use one or more.</p>
      
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-4">
           <div class="form-group">
             <%= label_tag :min_price%>
             <%= text_field_tag :min_price, params[:min_price], placeholder: 'Minimum', class: 'form-control input-sm'%>
          </div>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-4">
           <div class="form-group">
             <%= label_tag :max_price%>
             <%= text_field_tag :max_price, params[:max_price], placeholder: 'Maximum', class: 'form-control input-sm'%>
           </div>
         </div>
 
+        <div class="col-md-4">
+          <div class="form-group">
+            <%= label_tag :neighborhood%>
+            <%= select_tag(:neighborhood, options_from_collection_for_select(Location.all, :name, :name, params[:neighborhood]), {include_blank: true, class: "form-control"})%>
+          </div>
+        </div> 
+          <%= submit_tag 'More Filters', class: 'btn btn-link custom-btn morefilters'%> 
+      </div>
+
+      <div class="row more-filters-form">
         <div class="col-md-3">
           <div class="form-group">
             <%= label_tag :bedrooms%>
             <%= text_field_tag :bedrooms, params[:bedrooms], placeholder: 'Beds', class: 'form-control input-sm'%>
          </div>
         </div>
-      
-        <div class="col-md-3">
-          <div class="form-group">
-            <%= label_tag :bathrroms%>
-            <%= text_field_tag :bathrroms, params[:bathrroms], placeholder: 'Baths', class: 'form-control input-sm'%>
-         </div>
-        </div>
-      </div>
 
-      <div class="row">
         <div class="col-md-3">
           <div class="form-group">
-            <%= label_tag :neighborhood%>
-            <%= select_tag(:neighborhood, options_from_collection_for_select(Location.all, :name, :name, params[:neighborhood]), {include_blank: true, class: "form-control"})%>
+            <%= label_tag :bathrooms%>
+            <%= text_field_tag :bathrooms, params[:bathrooms], placeholder: 'Baths', class: 'form-control input-sm'%>
           </div>
         </div>
+        
 
          <div class="col-md-3">
            <div class="form-group">
@@ -82,9 +84,10 @@
         <div class="col-md-6 col-md-offset-3">
            <div class="form-group">
              <%= submit_tag 'Search', class: 'btn btn-default custom-btn search-btn'%>
+             <!-- <%= button_tag "Reset", type: :reset, class: 'btn btn-default custom-btn search-btn', id: 'reset-btn' %> -->
            </div>
         </div>
       </div>
        <% end %>
     </div>
-  </div>
+</div>

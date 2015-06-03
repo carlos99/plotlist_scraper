@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="back-home">
+  <div class="top-buttons">
     <%= link_to 'Plotlist', root_path, class: 'heagin-link btn btn-default'%>
     <%= submit_tag 'Search Again', class: 'heagin-link btn btn-default', id: 'ragain'%>
   </div>
@@ -9,7 +9,12 @@
 
   <% if @lands.empty? %>
   <hr>
-  <h3>No results Found</h3>
+  <h3 class="no-result">No Results Found Using the Selected Filter.</h3>
+  <h4 class="no-result-note">
+    <!-- You're probably using only one filter and this does not exist in any of the apartments currently rent. -->
+    One or more filters that you are using does not exist in any of the apartments for rent. 
+    To prevent empty results, use more than one search filter.
+  </h4>
   <% else %>
 
     <div class="row">
